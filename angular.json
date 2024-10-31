@@ -15,22 +15,38 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/dms-portal",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/favicon-16x16.png",
+              "src/favicon-32x32.png",
+              "src/assets",
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/@portal/styles"
+              ]
+            },
             "styles": [
-              "src/styles.scss"
+              "src/@portal/styles/tailwind.scss",
+              "src/@portal/styles/themes.scss",
+              "src/styles/vendors.scss",
+              "src/@portal/styles/main.scss",
+              "src/styles/styles.scss",
+              "src/styles/tailwind.scss"
             ],
             "scripts": []
           },
@@ -39,14 +55,14 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
+                  "maximumWarning": "3mb",
+                  "maximumError": "5mb"
+              },
+              {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
+                  "maximumWarning": "75kb",
+                  "maximumError": "90kb"
+              }
               ],
               "outputHashing": "all"
             },
