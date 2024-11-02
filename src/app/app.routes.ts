@@ -13,7 +13,12 @@ export const appRoutes: Routes = [
       layout: 'empty'
     },
     children: [
-      {path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.routes')},
+      {
+        path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.routes')
+      },
+      {
+        path: 'settings', loadChildren: () => import('app/modules/apps/settings/settings.routes')
+      }
     ]
   },
 ];
