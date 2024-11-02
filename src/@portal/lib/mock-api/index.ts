@@ -1,1 +1,1 @@
-export * from '@fuse/lib/mock-api/public-api';
+export * from '@portal/lib/mock-api/public-api';

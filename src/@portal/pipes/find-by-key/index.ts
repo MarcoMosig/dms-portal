@@ -1,1 +1,1 @@
-export * from '@fuse/pipes/find-by-key/public-api';
+export * from '@portal/pipes/find-by-key/public-api';

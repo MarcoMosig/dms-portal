@@ -1,7 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FuseLoadingBarComponent } from '@fuse/components/loading-bar';
+import { FuseLoadingBarComponent } from '@portal/components/loading-bar';
 import { Subject } from 'rxjs';
 
 @Component({

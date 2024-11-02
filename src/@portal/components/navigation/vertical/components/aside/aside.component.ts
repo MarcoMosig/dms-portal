@@ -4,14 +4,14 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NavigationEnd, Router } from '@angular/router';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
-import { FuseVerticalNavigationBasicItemComponent } from '@fuse/components/navigation/vertical/components/basic/basic.component';
-import { FuseVerticalNavigationCollapsableItemComponent } from '@fuse/components/navigation/vertical/components/collapsable/collapsable.component';
-import { FuseVerticalNavigationDividerItemComponent } from '@fuse/components/navigation/vertical/components/divider/divider.component';
-import { FuseVerticalNavigationGroupItemComponent } from '@fuse/components/navigation/vertical/components/group/group.component';
-import { FuseVerticalNavigationSpacerItemComponent } from '@fuse/components/navigation/vertical/components/spacer/spacer.component';
-import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@portal/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@portal/components/navigation/navigation.types';
+import { FuseVerticalNavigationBasicItemComponent } from '@portal/components/navigation/vertical/components/basic/basic.component';
+import { FuseVerticalNavigationCollapsableItemComponent } from '@portal/components/navigation/vertical/components/collapsable/collapsable.component';
+import { FuseVerticalNavigationDividerItemComponent } from '@portal/components/navigation/vertical/components/divider/divider.component';
+import { FuseVerticalNavigationGroupItemComponent } from '@portal/components/navigation/vertical/components/group/group.component';
+import { FuseVerticalNavigationSpacerItemComponent } from '@portal/components/navigation/vertical/components/spacer/spacer.component';
+import { FuseVerticalNavigationComponent } from '@portal/components/navigation/vertical/vertical.component';
 import { filter, Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -28,13 +28,19 @@ export class FuseVerticalNavigationAsideItemComponent implements OnChanges, OnIn
     static ngAcceptInputType_skipChildren: BooleanInput;
     /* eslint-enable @typescript-eslint/naming-convention */
 
+  // @ts-ignore
     @Input() activeItemId: string;
+  // @ts-ignore
     @Input() autoCollapse: boolean;
+  // @ts-ignore
     @Input() item: FuseNavigationItem;
+  // @ts-ignore
     @Input() name: string;
+  // @ts-ignore
     @Input() skipChildren: boolean;
 
     active: boolean = false;
+  // @ts-ignore
     private _fuseVerticalNavigationComponent: FuseVerticalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 

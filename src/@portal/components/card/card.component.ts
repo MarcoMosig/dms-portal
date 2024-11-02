@@ -1,8 +1,8 @@
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { NgIf } from '@angular/common';
 import { Component, HostBinding, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { fuseAnimations } from '@fuse/animations';
-import { FuseCardFace } from '@fuse/components/card/card.types';
+import { fuseAnimations } from '@portal/animations';
+import { FuseCardFace } from '@portal/components/card/card.types';
 
 @Component({
     selector     : 'fuse-card',

@@ -1,9 +1,9 @@
 import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { fuseAnimations } from '@fuse/animations';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
-import { FuseUtilsService } from '@fuse/services/utils/utils.service';
+import { fuseAnimations } from '@portal/animations';
+import { FuseNavigationService } from '@portal/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@portal/components/navigation/navigation.types';
+import { FuseUtilsService } from '@portal/services/utils/utils.service';
 import { ReplaySubject, Subject } from 'rxjs';
 import { FuseHorizontalNavigationBasicItemComponent } from './components/basic/basic.component';
 import { FuseHorizontalNavigationBranchItemComponent } from './components/branch/branch.component';
@@ -23,6 +23,7 @@ import { FuseHorizontalNavigationSpacerItemComponent } from './components/spacer
 export class FuseHorizontalNavigationComponent implements OnChanges, OnInit, OnDestroy
 {
     @Input() name: string = this._fuseUtilsService.randomId();
+  // @ts-ignore
     @Input() navigation: FuseNavigationItem[];
 
     onRefreshed: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);

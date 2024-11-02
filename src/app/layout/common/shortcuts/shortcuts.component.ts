@@ -24,12 +24,16 @@ import { Subject, takeUntil } from 'rxjs';
     imports: [MatButtonModule, MatIconModule, NgIf, MatTooltipModule, NgFor, NgClass, NgTemplateOutlet, RouterLink, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSlideToggleModule],
 })
 export class ShortcutsComponent implements OnInit, OnDestroy {
+  // @ts-ignore
     @ViewChild('shortcutsOrigin') private _shortcutsOrigin: MatButton;
+  // @ts-ignore
     @ViewChild('shortcutsPanel') private _shortcutsPanel: TemplateRef<any>;
 
     mode: 'view' | 'modify' | 'add' | 'edit' = 'view';
+  // @ts-ignore
     shortcutForm: UntypedFormGroup;
-    shortcuts: Shortcut[];
+    shortcuts: Shortcut[] = [];
+    // @ts-ignore
     private _overlayRef: OverlayRef;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 

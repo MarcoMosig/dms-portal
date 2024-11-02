@@ -1,2 +1,2 @@
-export * from '@fuse/components/highlight/highlight.component';
-export * from '@fuse/components/highlight/highlight.service';
+export * from '@portal/components/highlight/highlight.component';
+export * from '@portal/components/highlight/highlight.service';

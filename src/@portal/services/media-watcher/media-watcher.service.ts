@@ -1,6 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
-import { FuseConfigService } from '@fuse/services/config';
+import { FuseConfigService } from '@portal/services/config';
 import { fromPairs } from 'lodash-es';
 import { map, Observable, ReplaySubject, switchMap } from 'rxjs';
 
@@ -31,6 +31,7 @@ export class FuseMediaWatcherService
                     for ( const [query] of matchingBreakpoints )
                     {
                         // Find the alias of the matching query
+                      // @ts-ignore
                         const matchingAlias = Object.entries(screens).find(([alias, q]) => q === query)[0];
 
                         // Add the matching query to the observable values

@@ -4,8 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
-import { FuseDrawerComponent } from '@fuse/components/drawer';
-import { FuseConfig, FuseConfigService, Scheme, Theme, Themes } from '@fuse/services/config';
+import { FuseDrawerComponent } from '@portal/components/drawer';
+import { FuseConfig, FuseConfigService, Scheme, Theme, Themes } from '@portal/services/config';
 
 import { Subject, takeUntil } from 'rxjs';
 
@@ -35,10 +35,14 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class SettingsComponent implements OnInit, OnDestroy
 {
+  // @ts-ignore
     config: FuseConfig;
-    layout: string;
+  // @ts-ignore
+    layout: string = "";
+  // @ts-ignore
     scheme: 'dark' | 'light';
-    theme: string;
+    theme: string = '';
+  // @ts-ignore
     themes: Themes;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 

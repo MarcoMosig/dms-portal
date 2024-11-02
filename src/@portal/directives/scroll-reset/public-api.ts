@@ -1,1 +1,1 @@
-export * from '@fuse/directives/scroll-reset/scroll-reset.directive';
+export * from '@portal/directives/scroll-reset/scroll-reset.directive';

@@ -1,9 +1,9 @@
 import { animate, AnimationBuilder, AnimationPlayer, style } from '@angular/animations';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { FuseDrawerService } from '@fuse/components/drawer/drawer.service';
-import { FuseDrawerMode, FuseDrawerPosition } from '@fuse/components/drawer/drawer.types';
-import { FuseUtilsService } from '@fuse/services/utils/utils.service';
+import { FuseDrawerService } from '@portal/components/drawer/drawer.service';
+import { FuseDrawerMode, FuseDrawerPosition } from '@portal/components/drawer/drawer.types';
+import { FuseUtilsService } from '@portal/services/utils/utils.service';
 
 @Component({
     selector     : 'fuse-drawer',
@@ -35,7 +35,9 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
     private _animationsEnabled: boolean = false;
     private readonly _handleOverlayClick: any;
     private _hovered: boolean = false;
+  // @ts-ignore
     private _overlay: HTMLElement;
+  // @ts-ignore
     private _player: AnimationPlayer;
 
     /**
@@ -135,7 +137,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
         if ( 'fixed' in changes )
         {
             // Coerce the value to a boolean
-            this.fixed = coerceBooleanProperty(changes.fixed.currentValue);
+            this.fixed = coerceBooleanProperty(changes['fixed'].currentValue);
 
             // Execute the observable
             this.fixedChanged.next(this.fixed);
@@ -145,8 +147,8 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
         if ( 'mode' in changes )
         {
             // Get the previous and current values
-            const previousMode = changes.mode.previousValue;
-            const currentMode = changes.mode.currentValue;
+            const previousMode = changes['mode'].previousValue;
+            const currentMode = changes['mode'].currentValue;
 
             // Disable the animations
             this._disableAnimations();
@@ -185,7 +187,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
         if ( 'opened' in changes )
         {
             // Coerce the value to a boolean
-            const open = coerceBooleanProperty(changes.opened.currentValue);
+            const open = coerceBooleanProperty(changes['opened'].currentValue);
 
             // Open/close the drawer
             this._toggleOpened(open);
@@ -202,7 +204,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
         if ( 'transparentOverlay' in changes )
         {
             // Coerce the value to a boolean
-            this.transparentOverlay = coerceBooleanProperty(changes.transparentOverlay.currentValue);
+            this.transparentOverlay = coerceBooleanProperty(changes['transparentOverlay'].currentValue);
         }
     }
 
@@ -388,7 +390,9 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
                 this._overlay.removeEventListener('click', this._handleOverlayClick);
 
                 // Remove the overlay
-                this._overlay.parentNode.removeChild(this._overlay);
+                // @ts-ignore
+              this._overlay.parentNode.removeChild(this._overlay);
+              // @ts-ignore
                 this._overlay = null;
             }
         });

@@ -2,13 +2,13 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
-import { FuseVerticalNavigationBasicItemComponent } from '@fuse/components/navigation/vertical/components/basic/basic.component';
-import { FuseVerticalNavigationCollapsableItemComponent } from '@fuse/components/navigation/vertical/components/collapsable/collapsable.component';
-import { FuseVerticalNavigationDividerItemComponent } from '@fuse/components/navigation/vertical/components/divider/divider.component';
-import { FuseVerticalNavigationSpacerItemComponent } from '@fuse/components/navigation/vertical/components/spacer/spacer.component';
-import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@portal/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@portal/components/navigation/navigation.types';
+import { FuseVerticalNavigationBasicItemComponent } from '@portal/components/navigation/vertical/components/basic/basic.component';
+import { FuseVerticalNavigationCollapsableItemComponent } from '@portal/components/navigation/vertical/components/collapsable/collapsable.component';
+import { FuseVerticalNavigationDividerItemComponent } from '@portal/components/navigation/vertical/components/divider/divider.component';
+import { FuseVerticalNavigationSpacerItemComponent } from '@portal/components/navigation/vertical/components/spacer/spacer.component';
+import { FuseVerticalNavigationComponent } from '@portal/components/navigation/vertical/vertical.component';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -24,10 +24,13 @@ export class FuseVerticalNavigationGroupItemComponent implements OnInit, OnDestr
     static ngAcceptInputType_autoCollapse: BooleanInput;
     /* eslint-enable @typescript-eslint/naming-convention */
 
+  // @ts-ignore
     @Input() autoCollapse: boolean;
+  // @ts-ignore
     @Input() item: FuseNavigationItem;
+  // @ts-ignore
     @Input() name: string;
-
+  // @ts-ignore
     private _fuseVerticalNavigationComponent: FuseVerticalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 

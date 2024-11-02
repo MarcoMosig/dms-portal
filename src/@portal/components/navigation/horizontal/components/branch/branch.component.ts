@@ -4,11 +4,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Inpu
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FuseHorizontalNavigationBasicItemComponent } from '@fuse/components/navigation/horizontal/components/basic/basic.component';
-import { FuseHorizontalNavigationDividerItemComponent } from '@fuse/components/navigation/horizontal/components/divider/divider.component';
-import { FuseHorizontalNavigationComponent } from '@fuse/components/navigation/horizontal/horizontal.component';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
+import { FuseHorizontalNavigationBasicItemComponent } from '@portal/components/navigation/horizontal/components/basic/basic.component';
+import { FuseHorizontalNavigationDividerItemComponent } from '@portal/components/navigation/horizontal/components/divider/divider.component';
+import { FuseHorizontalNavigationComponent } from '@portal/components/navigation/horizontal/horizontal.component';
+import { FuseNavigationService } from '@portal/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@portal/components/navigation/navigation.types';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -25,10 +25,14 @@ export class FuseHorizontalNavigationBranchItemComponent implements OnInit, OnDe
     /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() child: boolean = false;
+  // @ts-ignore
     @Input() item: FuseNavigationItem;
+  // @ts-ignore
     @Input() name: string;
+  // @ts-ignore
     @ViewChild('matMenu', {static: true}) matMenu: MatMenu;
 
+  // @ts-ignore
     private _fuseHorizontalNavigationComponent: FuseHorizontalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 

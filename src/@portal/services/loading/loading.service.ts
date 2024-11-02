@@ -43,6 +43,7 @@ export class FuseLoadingService
      */
     get progress$(): Observable<number>
     {
+      // @ts-ignore
         return this._progress$.asObservable();
     }
 

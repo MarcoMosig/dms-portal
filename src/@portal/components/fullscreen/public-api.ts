@@ -1,1 +1,1 @@
-export * from '@fuse/components/fullscreen/fullscreen.component';
+export * from '@portal/components/fullscreen/fullscreen.component';

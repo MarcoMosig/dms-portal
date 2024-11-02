@@ -1,2 +1,2 @@
-export * from '@fuse/pipes/find-by-key/find-by-key.pipe';
-export * from '@fuse/pipes/find-by-key/find-by-key.module';
+export * from '@portal/pipes/find-by-key/find-by-key.pipe';
+export * from '@portal/pipes/find-by-key/find-by-key.module';

@@ -1,1 +1,1 @@
-export * from '@fuse/components/fullscreen/public-api';
+export * from '@portal/components/fullscreen/public-api';

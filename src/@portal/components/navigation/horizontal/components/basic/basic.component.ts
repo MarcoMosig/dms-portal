@@ -4,10 +4,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
-import { FuseHorizontalNavigationComponent } from '@fuse/components/navigation/horizontal/horizontal.component';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
-import { FuseUtilsService } from '@fuse/services/utils/utils.service';
+import { FuseHorizontalNavigationComponent } from '@portal/components/navigation/horizontal/horizontal.component';
+import { FuseNavigationService } from '@portal/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@portal/components/navigation/navigation.types';
+import { FuseUtilsService } from '@portal/services/utils/utils.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -19,10 +19,13 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class FuseHorizontalNavigationBasicItemComponent implements OnInit, OnDestroy
 {
+  // @ts-ignore
     @Input() item: FuseNavigationItem;
+  // @ts-ignore
     @Input() name: string;
 
     isActiveMatchOptions: IsActiveMatchOptions;
+  // @ts-ignore
     private _fuseHorizontalNavigationComponent: FuseHorizontalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 

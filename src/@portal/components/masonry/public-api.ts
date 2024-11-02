@@ -1,1 +1,1 @@
-export * from '@fuse/components/masonry/masonry.component';
+export * from '@portal/components/masonry/masonry.component';

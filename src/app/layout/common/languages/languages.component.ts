@@ -2,7 +2,7 @@ import { NgFor, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@portal/components/navigation';
 import { AvailableLangs, TranslocoService } from '@ngneat/transloco';
 import { take } from 'rxjs';
 
@@ -17,7 +17,9 @@ import { take } from 'rxjs';
 })
 export class LanguagesComponent implements OnInit, OnDestroy
 {
+  // @ts-ignore
     availableLangs: AvailableLangs;
+  // @ts-ignore
     activeLang: string;
     flagCodes: any;
 
@@ -119,7 +121,7 @@ export class LanguagesComponent implements OnInit, OnDestroy
         // Return if the navigation component does not exist
         if ( !navComponent )
         {
-            return null;
+            return ;
         }
 
         // Get the flat navigation data

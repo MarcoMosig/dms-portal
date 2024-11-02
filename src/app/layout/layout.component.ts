@@ -1,10 +1,10 @@
 import { DOCUMENT, NgIf } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { FuseConfig, FuseConfigService } from '@fuse/services/config';
-import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { FusePlatformService } from '@fuse/services/platform';
-import { FUSE_VERSION } from '@fuse/version';
+import { FuseConfig, FuseConfigService } from '@portal/services/config';
+import { FuseMediaWatcherService } from '@portal/services/media-watcher';
+import { FusePlatformService } from '@portal/services/platform';
+import { FUSE_VERSION } from '@portal/version';
 import { combineLatest, filter, map, Subject, takeUntil } from 'rxjs';
 import { SettingsComponent } from './common/settings/settings.component';
 import { EmptyLayoutComponent } from './layouts/empty/empty.component';
@@ -29,9 +29,13 @@ import { ThinLayoutComponent } from './layouts/vertical/thin/thin.component';
 })
 export class LayoutComponent implements OnInit, OnDestroy
 {
+    // @ts-ignore
     config: FuseConfig;
+  // @ts-ignore
     layout: string;
+  // @ts-ignore
     scheme: 'dark' | 'light';
+  // @ts-ignore
     theme: string;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -182,10 +186,10 @@ export class LayoutComponent implements OnInit, OnDestroy
         paths.forEach((path) =>
         {
             // Check if there is a 'layout' data
-            if ( path.routeConfig && path.routeConfig.data && path.routeConfig.data.layout )
+            if ( path.routeConfig && path.routeConfig.data && path.routeConfig.data['layout'] )
             {
                 // Set the layout
-                this.layout = path.routeConfig.data.layout;
+                this.layout = path.routeConfig.data['layout'];
             }
         });
     }

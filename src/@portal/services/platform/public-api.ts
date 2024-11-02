@@ -1,1 +1,1 @@
-export * from '@fuse/services/platform/platform.service';
+export * from '@portal/services/platform/platform.service';

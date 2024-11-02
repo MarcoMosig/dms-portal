@@ -1,2 +1,2 @@
-export * from '@fuse/services/loading/loading.service';
-export * from '@fuse/services/loading/loading.interceptor';
+export * from '@portal/services/loading/loading.service';
+export * from '@portal/services/loading/loading.interceptor';

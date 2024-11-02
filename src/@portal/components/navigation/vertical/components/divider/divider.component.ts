@@ -1,8 +1,8 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
-import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@portal/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@portal/components/navigation/navigation.types';
+import { FuseVerticalNavigationComponent } from '@portal/components/navigation/vertical/vertical.component';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -14,9 +14,11 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class FuseVerticalNavigationDividerItemComponent implements OnInit, OnDestroy
 {
+  // @ts-ignore
     @Input() item: FuseNavigationItem;
+  // @ts-ignore
     @Input() name: string;
-
+// @ts-ignore
     private _fuseVerticalNavigationComponent: FuseVerticalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 

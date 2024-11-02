@@ -1,1 +1,1 @@
-export * from '@fuse/directives/scrollbar/public-api';
+export * from '@portal/directives/scrollbar/public-api';

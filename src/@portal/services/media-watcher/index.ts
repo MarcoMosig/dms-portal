@@ -1,1 +1,1 @@
-export * from '@fuse/services/media-watcher/public-api';
+export * from '@portal/services/media-watcher/public-api';

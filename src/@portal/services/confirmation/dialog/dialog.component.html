@@ -17,7 +17,7 @@
     <div class="flex flex-col sm:flex-row flex-auto items-center sm:items-start p-8 pb-6 sm:pb-8">
 
         <!-- Icon -->
-        <ng-container *ngIf="data.icon.show">
+        <ng-container *ngIf="data.icon?.show">
             <div
                 class="flex flex-0 items-center justify-center w-10 h-10 sm:mr-4 rounded-full"
                 [ngClass]="{'text-primary-600 bg-primary-100 dark:text-primary-50 dark:bg-primary-600': data.icon.color === 'primary',
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Actions -->
-    <ng-container *ngIf="data.actions.confirm.show || data.actions.cancel.show">
+    <ng-container *ngIf="data.actions?.confirm?.show || data.actions?.cancel?.show">
         <div class="flex items-center justify-center sm:justify-end px-6 py-4 space-x-3 bg-gray-50 dark:bg-black dark:bg-opacity-10">
 
             <!-- Cancel -->

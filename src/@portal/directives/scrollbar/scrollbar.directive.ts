@@ -2,7 +2,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { ScrollbarGeometry, ScrollbarPosition } from '@fuse/directives/scrollbar/scrollbar.types';
+import { ScrollbarGeometry, ScrollbarPosition } from '@portal/directives/scrollbar/scrollbar.types';
 import { merge } from 'lodash-es';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
@@ -22,10 +22,13 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
     /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() fuseScrollbar: boolean = true;
+  // @ts-ignore
     @Input() fuseScrollbarOptions: PerfectScrollbar.Options;
 
-    private _animation: number;
+    private _animation: number = 0;
+  // @ts-ignore
     private _options: PerfectScrollbar.Options;
+  // @ts-ignore
     private _ps: PerfectScrollbar;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -75,7 +78,7 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
         if ( 'fuseScrollbar' in changes )
         {
             // Interpret empty string as 'true'
-            this.fuseScrollbar = coerceBooleanProperty(changes.fuseScrollbar.currentValue);
+            this.fuseScrollbar = coerceBooleanProperty(changes['fuseScrollbar'].currentValue);
 
             // If enabled, init the directive
             if ( this.fuseScrollbar )
@@ -93,7 +96,7 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
         if ( 'fuseScrollbarOptions' in changes )
         {
             // Merge the options
-            this._options = merge({}, this._options, changes.fuseScrollbarOptions.currentValue);
+            this._options = merge({}, this._options, changes['fuseScrollbarOptions'].currentValue);
 
             // Return if not initialized
             if ( !this._ps )
@@ -374,6 +377,7 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
         if ( this._animation )
         {
             window.cancelAnimationFrame(this._animation);
+          // @ts-ignore
             this._animation = null;
         }
 
@@ -465,6 +469,7 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
         this._ps.destroy();
 
         // Clean up
+      // @ts-ignore
         this._ps = null;
     }
 }

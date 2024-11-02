@@ -21,11 +21,14 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class MessagesComponent implements OnInit, OnDestroy
 {
+  // @ts-ignore
     @ViewChild('messagesOrigin') private _messagesOrigin: MatButton;
+  // @ts-ignore
     @ViewChild('messagesPanel') private _messagesPanel: TemplateRef<any>;
 
-    messages: Message[];
+    messages: Message[] = [];
     unreadCount: number = 0;
+  // @ts-ignore
     private _overlayRef: OverlayRef;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
