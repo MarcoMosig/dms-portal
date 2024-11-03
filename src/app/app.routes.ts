@@ -54,7 +54,63 @@ export const appRoutes: Routes = [
             path: 'settings', loadChildren: () => import('app/modules/apps/settings/settings.routes')
           }
         ]
-      }
+      },
+
+      // User Interface
+      {path: 'ui', children: [
+
+          // Material Components
+          {path: 'material-components', loadChildren: () => import('app/modules/ui/material-components/material-components.routes')},
+
+          // Fuse Components
+          {path: 'fuse-components', loadChildren: () => import('app/modules/ui/fuse-components/fuse-components.routes')},
+
+          // Other Components
+          {path: 'other-components', loadChildren: () => import('app/modules/ui/other-components/other-components.routes')},
+
+          // TailwindCSS
+          {path: 'tailwindcss', loadChildren: () => import('app/modules/ui/tailwindcss/tailwindcss.routes')},
+
+          // Advanced Search
+          {path: 'advanced-search', loadChildren: () => import('app/modules/ui/advanced-search/advanced-search.routes')},
+
+          // Animations
+          {path: 'animations', loadChildren: () => import('app/modules/ui/animations/animations.routes')},
+
+          // Cards
+          {path: 'cards', loadChildren: () => import('app/modules/ui/cards/cards.routes')},
+
+          // Colors
+          {path: 'colors', loadChildren: () => import('app/modules/ui/colors/colors.routes')},
+
+          // Confirmation Dialog
+          {path: 'confirmation-dialog', loadChildren: () => import('app/modules/ui/confirmation-dialog/confirmation-dialog.routes')},
+
+          // Datatable
+          {path: 'datatable', loadChildren: () => import('app/modules/ui/datatable/datatable.routes')},
+
+          // Forms
+          {path: 'forms', loadChildren: () => import('app/modules/ui/forms/forms.routes')},
+
+          // Icons
+          {path: 'icons', loadChildren: () => import('app/modules/ui/icons/icons.routes')},
+
+          // Page Layouts
+          {path: 'page-layouts', loadChildren: () => import('app/modules/ui/page-layouts/page-layouts.routes')},
+
+          // Typography
+          {path: 'typography', loadChildren: () => import('app/modules/ui/typography/typography.routes')}
+        ]},
+
+      // Documentation
+      {path: 'docs', children: [
+          // Guides
+          {path: 'guides', loadChildren: () => import('app/modules/docs/guides/guides.routes')}
+        ]},
+
+      // 404 & Catch all
+      {path: '404-not-found', pathMatch: 'full', loadChildren: () => import('app/modules/pages/error/error-404/error-404.routes')},
+      {path: '**', redirectTo: '404-not-found'}
     ]
   }
 ];
