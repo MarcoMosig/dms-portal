@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import {LayoutComponent} from "app/layout/layout.component";
 import {NoAuthGuard} from "app/core/auth/guards/noAuth.guard";
+import {AuthGuard} from "app/core/auth/guards/auth.guard";
+import {initialDataResolver} from "app/app.resolvers";
 
 export const appRoutes: Routes = [
   // Redirect empty path to '/dashboards/project'
@@ -24,10 +26,35 @@ export const appRoutes: Routes = [
     children: [
       {
         path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.routes')
-      },
-      {
-        path: 'settings', loadChildren: () => import('app/modules/apps/settings/settings.routes')
       }
     ]
   },
+  //Auth routes for authenticated users
+  {
+    path: '',
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    component: LayoutComponent,
+    resolve: {
+      initialData: initialDataResolver
+    },
+    children: [
+
+      // Dashboards
+      {
+        path: 'dashboards', children: [
+          {path: 'project', loadChildren: () => import('app/modules/dashboards/project/project.routes')}
+        ]
+      },
+      //apps
+      {
+        path: 'apps',
+        children: [
+          {
+            path: 'settings', loadChildren: () => import('app/modules/apps/settings/settings.routes')
+          }
+        ]
+      }
+    ]
+  }
 ];

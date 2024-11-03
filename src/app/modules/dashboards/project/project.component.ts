@@ -65,7 +65,8 @@ export class ProjectComponent implements OnInit, OnDestroy
             });
 
         // Attach SVG fill fixer to all ApexCharts
-        window['Apex'] = {
+        // @ts-ignore
+      window['Apex'] = {
             chart: {
                 events: {
                     mounted: (chart: any, options?: any): void =>
@@ -128,11 +129,13 @@ export class ProjectComponent implements OnInit, OnDestroy
         // 1. Find all elements with 'fill' attribute within the element
         // 2. Filter out the ones that doesn't have cross reference so we only left with the ones that use the 'url(#id)' syntax
         // 3. Insert the 'currentURL' at the front of the 'fill' attribute value
-        Array.from(element.querySelectorAll('*[fill]'))
+      Array.from(element.querySelectorAll('*[fill]'))
+        // @ts-ignore
             .filter(el => el.getAttribute('fill').indexOf('url(') !== -1)
             .forEach((el) =>
             {
                 const attrVal = el.getAttribute('fill');
+              // @ts-ignore
                 el.setAttribute('fill', `url(${currentURL}${attrVal.slice(attrVal.indexOf('#'))}`);
             });
     }
