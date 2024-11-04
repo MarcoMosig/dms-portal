@@ -21,6 +21,7 @@ import { FuseConfirmationService } from '@portal/services/confirmation';
 })
 export class ConfirmationDialogComponent implements OnInit
 {
+  // @ts-ignore
     configForm: UntypedFormGroup;
 
     /**
@@ -79,6 +80,7 @@ export class ConfirmationDialogComponent implements OnInit
         const dialogRef = this._fuseConfirmationService.open(this.configForm.value);
 
         // Subscribe to afterClosed from the dialog reference
+      // @ts-ignore
         dialogRef.afterClosed().subscribe((result) =>
         {
             console.log(result);

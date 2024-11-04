@@ -53,7 +53,7 @@ export class SettingsComponent implements OnInit, OnDestroy
             {
                 id         : 'basic',
                 icon       : 'heroicons_outline:user-circle',
-                title      : 'Account',
+                title      : 'Basic',
                 description: 'Manage your public profile and private information',
             },
             {

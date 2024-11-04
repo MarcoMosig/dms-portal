@@ -1,12 +1,12 @@
-import { FlatTreeControl } from '@angular/cdk/tree';
-import { NgIf } from '@angular/common';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
-import { RouterLink } from '@angular/router';
-import { FuseAlertComponent } from '@portal/components/alert';
-import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component';
+import {FlatTreeControl} from '@angular/cdk/tree';
+import {NgIf} from '@angular/common';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule} from '@angular/material/tree';
+import {RouterLink} from '@angular/router';
+import {FuseAlertComponent} from '@portal/components/alert';
+import {GuidesComponent} from 'app/modules/docs/guides/guides.component';
 
 interface DirNode
 {
@@ -179,6 +179,7 @@ export class DirectoryStructureComponent implements OnInit
         this.generalTree = this.createTree(this.generalDir);
 
         // Add 'last:true' to the last child
+      //@ts-ignore
         this.appTree.treeControl.dataNodes.forEach((node: FlatDirNode, index, nodes) =>
         {
             nodes[index].last = false;
@@ -191,7 +192,7 @@ export class DirectoryStructureComponent implements OnInit
                 nodes[index].last = true;
             }
         });
-
+        //@ts-ignore
         this.generalTree.treeControl.dataNodes.forEach((node: FlatDirNode, index, nodes) =>
         {
             nodes[index].last = false;
@@ -222,17 +223,20 @@ export class DirectoryStructureComponent implements OnInit
      */
     hasChild(_: number, node: DirNode): boolean
     {
+      //@ts-ignore
         return node.expandable;
     }
 
     /**
      * Create a new tree
      */
+    //@ts-ignore
     createTree(data): { dataSource: any; treeControl: any }
     {
         // Create tree control and data source
         const treeControl = new FlatTreeControl<FlatDirNode>(node => node.level, node => node.expandable);
         const dataSource = new MatTreeFlatDataSource(
+          //@ts-ignore
             treeControl,
             new MatTreeFlattener(
                 (node: DirNode, level: number) => ({

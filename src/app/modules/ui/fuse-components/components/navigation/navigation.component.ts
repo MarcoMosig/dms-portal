@@ -35,6 +35,7 @@ export class NavigationComponent
      * @param itemId
      * @param navigationName
      */
+    // @ts-ignore
     getNavItem(itemId, navigationName): FuseNavigationItem | null
     {
         // Get the component -> navigation data -> item
@@ -60,6 +61,7 @@ export class NavigationComponent
      * @param navigationName
      * @param title
      */
+    // @ts-ignore
     updateBadgeTitle(itemId, navigationName, title): void
     {
         // Get the component -> navigation data -> item
@@ -68,12 +70,13 @@ export class NavigationComponent
         // Return if the navigation component does not exist
         if ( !navComponent )
         {
-            return null;
+            return;
         }
 
         // Get the navigation item, update the badge and refresh the component
         const navigation = navComponent.navigation;
         const item = this._fuseNavigationService.getItem(itemId, navigation);
+      // @ts-ignore
         item.badge.title = title;
         navComponent.refresh();
     }
@@ -84,6 +87,7 @@ export class NavigationComponent
      * @param itemId
      * @param navigationName
      */
+    // @ts-ignore
     toggleDisabled(itemId, navigationName): void
     {
         // Get the component -> navigation data -> item
@@ -92,12 +96,13 @@ export class NavigationComponent
         // Return if the navigation component does not exist
         if ( !navComponent )
         {
-            return null;
+            return;
         }
 
         // Get the navigation item, update the badge and refresh the component
         const navigation = navComponent.navigation;
         const item = this._fuseNavigationService.getItem(itemId, navigation);
+      // @ts-ignore
         item.disabled = !item.disabled;
         navComponent.refresh();
     }
@@ -107,6 +112,7 @@ export class NavigationComponent
      *
      * @param navigationName
      */
+    // @ts-ignore
     swapNavigationData(navigationName): void
     {
         // Get the component -> navigation data -> item
@@ -115,7 +121,7 @@ export class NavigationComponent
         // Return if the navigation component does not exist
         if ( !navComponent )
         {
-            return null;
+            return;
         }
 
         // A navigation data to replace with

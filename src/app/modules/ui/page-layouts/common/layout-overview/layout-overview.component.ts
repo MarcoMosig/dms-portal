@@ -128,7 +128,8 @@ export interface PageLayoutsOverviewData
 })
 export class LayoutOverviewComponent implements OnInit
 {
-    overview: PageLayoutsOverviewData;
+    // @ts-ignore
+  overview: PageLayoutsOverviewData;
 
     /**
      * Constructor
@@ -143,6 +144,6 @@ export class LayoutOverviewComponent implements OnInit
     ngOnInit(): void
     {
         // Get the route data
-        this.overview = this._activatedRoute.snapshot.data.overview;
+        this.overview = this._activatedRoute.snapshot.data['overview'];
     }
 }

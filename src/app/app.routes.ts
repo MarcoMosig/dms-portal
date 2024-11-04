@@ -29,6 +29,20 @@ export const appRoutes: Routes = [
       }
     ]
   },
+  // Auth routes for authenticated users
+  {
+    path: '',
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    component: LayoutComponent,
+    data: {
+      layout: 'empty'
+    },
+    children: [
+      {path: 'sign-out', loadChildren: () => import('app/modules/auth/sign-out/sign-out.routes')},
+      // {path: 'unlock-session', loadChildren: () => import('app/modules/auth/unlock-session/unlock-session.routes')}
+    ]
+  },
   //Auth routes for authenticated users
   {
     path: '',
@@ -70,9 +84,6 @@ export const appRoutes: Routes = [
 
           // TailwindCSS
           {path: 'tailwindcss', loadChildren: () => import('app/modules/ui/tailwindcss/tailwindcss.routes')},
-
-          // Advanced Search
-          {path: 'advanced-search', loadChildren: () => import('app/modules/ui/advanced-search/advanced-search.routes')},
 
           // Animations
           {path: 'animations', loadChildren: () => import('app/modules/ui/animations/animations.routes')},

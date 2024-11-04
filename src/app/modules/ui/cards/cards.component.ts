@@ -32,6 +32,7 @@ import { FuseCardComponent } from '@portal/components/card';
 })
 export class CardsComponent implements AfterViewInit
 {
+  // @ts-ignore
     @ViewChildren(FuseCardComponent, {read: ElementRef}) private _fuseCards: QueryList<ElementRef>;
 
     filters: string[] = ['all', 'article', 'listing', 'list', 'info', 'shopping', 'pricing', 'testimonial', 'post', 'interactive'];

@@ -20,11 +20,14 @@ import { BehaviorSubject, combineLatest, map, Observable, Subject, takeUntil } f
 })
 export class IconsComponent implements OnInit, OnDestroy
 {
+  // @ts-ignore
     icons$: Observable<Icon>;
+  // @ts-ignore
     filteredIcons$: Observable<Icon>;
     filterValue$: BehaviorSubject<string> = new BehaviorSubject('');
 
     iconSize: string = 'icon-size-8';
+  // @ts-ignore
     selectedIcon: string[];
     private _unsubscribeAll: Subject<any> = new Subject();
 
@@ -50,6 +53,7 @@ export class IconsComponent implements OnInit, OnDestroy
         // Subscribe to icons
         this._iconsService.icons
             .pipe(takeUntil(this._unsubscribeAll))
+          // @ts-ignore
             .subscribe((icons) =>
             {
                 // Set the icon size in case the icon set
@@ -66,6 +70,7 @@ export class IconsComponent implements OnInit, OnDestroy
                 map(([icons, filterValue]) =>
                 {
                     // Filter the icons
+                  // @ts-ignore
                     const filteredIcons = icons.list.filter(icon => icon.toLowerCase().includes(filterValue.toLowerCase()));
 
                     // Update the list with the filtered icons

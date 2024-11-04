@@ -19,7 +19,9 @@ import { MatStepperModule } from '@angular/material/stepper';
 })
 export class FormsWizardsComponent implements OnInit
 {
+  // @ts-ignore
     horizontalStepperForm: UntypedFormGroup;
+  // @ts-ignore
     verticalStepperForm: UntypedFormGroup;
 
     /**

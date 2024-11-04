@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component';
+import { GuidesComponent } from 'app/modules/docs/guides/guides.component';
 
 @Component({
     selector   : 'updating',
@@ -11,9 +11,6 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 })
 export class UpdatingComponent
 {
-    /**
-     * Constructor
-     */
     constructor(private _guidesComponent: GuidesComponent)
     {
     }

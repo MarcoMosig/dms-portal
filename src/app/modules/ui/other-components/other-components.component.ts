@@ -17,8 +17,11 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class OtherComponentsComponent implements OnInit, OnDestroy
 {
+  // @ts-ignore
     @ViewChild('matDrawer', {static: true}) matDrawer: MatDrawer;
+  // @ts-ignore
     drawerMode: 'side' | 'over';
+  // @ts-ignore
     drawerOpened: boolean;
     menuData: FuseNavigationItem[];
     private _unsubscribeAll: Subject<any> = new Subject<any>();
